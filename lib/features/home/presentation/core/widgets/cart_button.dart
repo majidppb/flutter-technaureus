@@ -22,8 +22,8 @@ class CartButtonWidget extends StatelessWidget {
             );
           },
           style: const ButtonStyle(
-            iconSize: MaterialStatePropertyAll(30),
-            backgroundColor: MaterialStatePropertyAll(AppColors.white),
+            iconSize: WidgetStatePropertyAll(30),
+            backgroundColor: WidgetStatePropertyAll(AppColors.white),
           ),
           icon: const Icon(
             CupertinoIcons.cart,

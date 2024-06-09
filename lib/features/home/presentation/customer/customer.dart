@@ -95,14 +95,14 @@ class _CustomerScreenState extends State<_CustomerScreen> {
               child: SearchBar(
                 onChanged: _onSearch,
                 hintText: 'Search',
-                hintStyle: const MaterialStatePropertyAll(
+                hintStyle: const WidgetStatePropertyAll(
                   TextStyle(
                     color: AppColors.grey,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                elevation: const MaterialStatePropertyAll(0),
-                side: const MaterialStatePropertyAll(
+                elevation: const WidgetStatePropertyAll(0),
+                side: const WidgetStatePropertyAll(
                   BorderSide(
                     color: AppColors.grey,
                   ),

@@ -14,7 +14,7 @@ import '../mapper/customer_mapper.dart';
 import '../mapper/product_mapper.dart';
 import '../model/order_model.dart';
 
-@LazySingleton(as: HomeRepository)
+@Singleton(as: HomeRepository)
 class HomeRepositoryImpl
     with CustomerMapper, ProductMapper
     implements HomeRepository {

@@ -8,7 +8,7 @@ import '../../model/order_model.dart';
 import '../../model/product_model.dart';
 import '../interfaces/home_remote_datasource.dart';
 
-@LazySingleton(as: HomeRemoteDataSource)
+@Injectable(as: HomeRemoteDataSource)
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   const HomeRemoteDataSourceImpl(this._dio);
 

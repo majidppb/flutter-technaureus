@@ -127,7 +127,7 @@ class _CustomerWidget extends StatelessWidget {
               IconButton(
                 visualDensity: VisualDensity.compact,
                 style: const ButtonStyle(
-                  padding: MaterialStatePropertyAll(EdgeInsets.zero),
+                  padding: WidgetStatePropertyAll(EdgeInsets.zero),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
                 icon: Image.asset(
@@ -140,7 +140,7 @@ class _CustomerWidget extends StatelessWidget {
               IconButton(
                 visualDensity: VisualDensity.compact,
                 style: const ButtonStyle(
-                  padding: MaterialStatePropertyAll(EdgeInsets.zero),
+                  padding: WidgetStatePropertyAll(EdgeInsets.zero),
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
                 icon: Image.asset(

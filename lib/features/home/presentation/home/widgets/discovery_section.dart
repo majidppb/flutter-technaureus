@@ -32,25 +32,38 @@ class _DiscoverySection extends StatelessWidget {
             ],
           ),
           AppStyles.height10,
-          ResponsiveView(
-            phoneView: GridView.count(
-              physics: const NeverScrollableScrollPhysics(),
-              crossAxisCount: 2,
-              crossAxisSpacing: 11,
-              mainAxisSpacing: 11,
-              childAspectRatio: 185 / 180,
-              shrinkWrap: true,
-              children: items.map((item) => _DiscoveryWidget(item)).toList(),
+          // ResponsiveView(
+          //   phoneView: GridView.count(
+          //     physics: const NeverScrollableScrollPhysics(),
+          //     crossAxisCount: 2,
+          //     crossAxisSpacing: 11,
+          //     mainAxisSpacing: 11,
+          //     childAspectRatio: 185 / 180,
+          //     shrinkWrap: true,
+          //     children: items.map((item) => _DiscoveryWidget(item)).toList(),
+          //   ),
+          //   tabletView: GridView.count(
+          //     physics: const NeverScrollableScrollPhysics(),
+          //     crossAxisCount: 4,
+          //     crossAxisSpacing: 15,
+          //     mainAxisSpacing: 15,
+          //     childAspectRatio: 185 / 180,
+          //     shrinkWrap: true,
+          //     children: items.map((item) => _DiscoveryWidget(item)).toList(),
+          //   ),
+          // ),
+
+          GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 250,
+              mainAxisExtent: 180,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
             ),
-            tabletView: GridView.count(
-              physics: const NeverScrollableScrollPhysics(),
-              crossAxisCount: 4,
-              crossAxisSpacing: 15,
-              mainAxisSpacing: 15,
-              childAspectRatio: 185 / 180,
-              shrinkWrap: true,
-              children: items.map((item) => _DiscoveryWidget(item)).toList(),
-            ),
+            shrinkWrap: true,
+            itemBuilder: (context, index) => _DiscoveryWidget(items[index]),
+            itemCount: items.length,
           ),
         ],
       ),
@@ -223,7 +236,7 @@ class __QuantityWidgetState extends State<_QuantityWidget> {
             visualDensity: VisualDensity.compact,
             onPressed: _onRemove,
             style: const ButtonStyle(
-              padding: MaterialStatePropertyAll(EdgeInsets.zero),
+              padding: WidgetStatePropertyAll(EdgeInsets.zero),
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
             icon: const Icon(
@@ -235,7 +248,7 @@ class __QuantityWidgetState extends State<_QuantityWidget> {
           IconButton(
             visualDensity: VisualDensity.compact,
             style: const ButtonStyle(
-              padding: MaterialStatePropertyAll(EdgeInsets.zero),
+              padding: WidgetStatePropertyAll(EdgeInsets.zero),
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
             onPressed: _onAdd,

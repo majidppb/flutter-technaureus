@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
@@ -55,41 +57,46 @@ class _HomeScreen extends StatelessWidget {
             height: 45,
             child: Padding(
               padding: AppStyles.hPadding30,
-              child: SearchAnchor.bar(
-                  isFullScreen: false,
-                  dividerColor: AppColors.grey,
-                  viewBackgroundColor: AppColors.white,
-                  barBackgroundColor:
-                      const MaterialStatePropertyAll(AppColors.white),
-                  barElevation: const MaterialStatePropertyAll(5),
-                  barHintText: 'Search grocery',
-                  barHintStyle: const MaterialStatePropertyAll(TextStyle(
-                    color: AppColors.grey,
-                    fontWeight: FontWeight.bold,
-                  )),
-                  barSide: const MaterialStatePropertyAll(
-                    BorderSide(
+              child: Focus(
+                child: SearchAnchor.bar(
+                    textInputAction: TextInputAction.search,
+                    isFullScreen: false,
+                    viewConstraints: BoxConstraints.fromViewConstraints(
+                        const ViewConstraints(maxHeight: 350)),
+                    dividerColor: AppColors.grey,
+                    viewBackgroundColor: AppColors.white,
+                    barBackgroundColor:
+                        const WidgetStatePropertyAll(AppColors.white),
+                    barElevation: const WidgetStatePropertyAll(5),
+                    barHintText: 'Search grocery',
+                    barHintStyle: const WidgetStatePropertyAll(TextStyle(
                       color: AppColors.grey,
+                      fontWeight: FontWeight.bold,
+                    )),
+                    barSide: const WidgetStatePropertyAll(
+                      BorderSide(
+                        color: AppColors.grey,
+                      ),
                     ),
-                  ),
-                  barLeading: const Icon(
-                    CupertinoIcons.search,
-                    color: AppColors.grey,
-                    size: 20,
-                  ),
-                  suggestionsBuilder: (ctx, controller) async {
-                    return context
-                        .read<HomeBloc>()
-                        .state
-                        .categories
-                        .map((e) => ListTile(
-                              title: Text(e.name),
-                              leading: CircleAvatar(
-                                backgroundImage:
-                                    CachedNetworkImageProvider(e.image),
-                              ),
-                            ));
-                  }),
+                    barLeading: const Icon(
+                      CupertinoIcons.search,
+                      color: AppColors.grey,
+                      size: 20,
+                    ),
+                    suggestionsBuilder: (ctx, controller) async {
+                      return context
+                          .read<HomeBloc>()
+                          .state
+                          .categories
+                          .map((e) => ListTile(
+                                title: Text(e.name),
+                                leading: CircleAvatar(
+                                  backgroundImage:
+                                      CachedNetworkImageProvider(e.image),
+                                ),
+                              ));
+                    }),
+              ),
             ),
           ),
         ),
@@ -120,14 +127,14 @@ class _HomeScreen extends StatelessWidget {
 
 const a = SearchBar(
   hintText: 'Search grocery',
-  hintStyle: MaterialStatePropertyAll(TextStyle(
+  hintStyle: WidgetStatePropertyAll(TextStyle(
     color: AppColors.grey,
     fontWeight: FontWeight.bold,
   )),
-  elevation: MaterialStatePropertyAll(5),
-  shadowColor: MaterialStatePropertyAll(AppColors.tBlack2),
-  surfaceTintColor: MaterialStatePropertyAll(Colors.transparent),
-  side: MaterialStatePropertyAll(
+  elevation: WidgetStatePropertyAll(5),
+  shadowColor: WidgetStatePropertyAll(AppColors.tBlack2),
+  surfaceTintColor: WidgetStatePropertyAll(Colors.transparent),
+  side: WidgetStatePropertyAll(
     BorderSide(
       color: AppColors.grey,
     ),

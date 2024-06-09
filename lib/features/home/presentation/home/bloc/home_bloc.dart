@@ -24,10 +24,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           offers: const [
             Offer(
               poster:
-                  'https://static.vecteezy.com/system/resources/previews/001/072/259/original/summer-sale-banner-with-fruit-vector.jpg',
-            ),
-            Offer(
-              poster:
                   'https://img.pikbest.com/wp/202413/plant-silhouette-farm-organic-fruit-web-banner_6080030.jpg!w700wp',
             ),
             Offer(
@@ -36,11 +32,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             ),
             Offer(
               poster:
-                  'https://img.freepik.com/premium-photo/top-view-variety-fresh-fish-seafood-ice_126277-745.jpg',
+                  'https://img.freepik.com/free-vector/flat-supermarket-sale-background_23-2149379271.jpg',
             ),
             Offer(
               poster:
-                  'https://img.freepik.com/free-vector/flat-supermarket-sale-background_23-2149379271.jpg',
+                  'https://static.vecteezy.com/system/resources/previews/001/072/259/original/summer-sale-banner-with-fruit-vector.jpg',
+            ),
+            Offer(
+              poster:
+                  'https://img.freepik.com/premium-photo/top-view-variety-fresh-fish-seafood-ice_126277-745.jpg',
             ),
           ],
           categories: const [

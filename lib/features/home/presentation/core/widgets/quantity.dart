@@ -74,7 +74,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
             visualDensity: VisualDensity.compact,
             onPressed: _onRemove,
             style: const ButtonStyle(
-              padding: MaterialStatePropertyAll(EdgeInsets.zero),
+              padding: WidgetStatePropertyAll(EdgeInsets.zero),
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
             icon: const Icon(
@@ -86,7 +86,7 @@ class _QuantityWidgetState extends State<QuantityWidget> {
           IconButton(
             visualDensity: VisualDensity.compact,
             style: const ButtonStyle(
-              padding: MaterialStatePropertyAll(EdgeInsets.zero),
+              padding: WidgetStatePropertyAll(EdgeInsets.zero),
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
             onPressed: _onAdd,

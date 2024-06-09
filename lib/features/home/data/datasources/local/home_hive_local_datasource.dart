@@ -2,14 +2,13 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../domain/entities/cart_item.dart';
-import '../../../domain/entities/product.dart';
 import '../interfaces/home_local_datasource.dart';
 
-@Singleton(as: HomeLocalDataSource)
+@Injectable(as: HomeLocalDataSource)
 class HomeHiveLocalDataSource implements HomeLocalDataSource {
-  static const _dbName = 'cart';
+  final Box<CartItem> _db;
 
-  late final Box<CartItem> _db;
+  const HomeHiveLocalDataSource(this._db);
 
   @override
   Future<void> addCartItem(CartItem item) async {
@@ -32,18 +31,5 @@ class HomeHiveLocalDataSource implements HomeLocalDataSource {
   @override
   Future<void> updateCartItem(CartItem item) async {
     await _db.put(item.product.id, item);
-  }
-
-  /// Initialize the hive
-  @PostConstruct(preResolve: true)
-  Future<void> init() async {
-    await Hive.initFlutter();
-    if (!Hive.isAdapterRegistered(ProductAdapter().typeId)) {
-      Hive.registerAdapter(ProductAdapter());
-    }
-    if (!Hive.isAdapterRegistered(CartItemAdapter().typeId)) {
-      Hive.registerAdapter(CartItemAdapter());
-    }
-    _db = await Hive.openBox<CartItem>(_dbName);
   }
 }
